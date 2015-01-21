@@ -60,7 +60,7 @@ public class ContactService {
 
         Contact contactBase = contactDao.rechercherContact(ancienNom);
         if (contactBase == null) {
-            throw new ContactInexistantException();
+            throw new ContactInexistantException("Le contact n'a pas été trouvé");
         }
 
         if (contactDao.rechercherContact(nouveauNom) != null) {
