@@ -31,19 +31,19 @@ public class ContactService {
     private IContactDao contactDao = new ContactDaoImpl();
 
     /**
-     * Méthode permettant d'ajouter un contact
+     * Mï¿½thode permettant d'ajouter un contact
      * 
-     * @param nom nom du contact a créer
-     * @throws ContactException si le nom passé est déjà présent en base de données
+     * @param nom nom du contact a creer
+     * @throws ContactException si le nom passe est deja present en base de donnees
      */
     public void creerContact(String nom) throws ContactException {
         int taille = StringUtils.trimToEmpty(nom).length();
         if (taille < TAILLE_MIN_NOM || taille > TAILLE_MAX_NOM) {
-            throw new IllegalArgumentException("Le nom doit être compris entre 3 et 40 caractères");
+            throw new IllegalArgumentException("Le nom doit ï¿½tre compris entre 3 et 40 caractï¿½res");
         }
 
         if (contactDao.rechercherContact(nom) != null) {
-            throw new ContactException("Un contact avec le nom " + nom + " existe déjà en base de données");
+            throw new ContactException("Un contact avec le nom " + nom + " existe dï¿½jï¿½ en base de donnï¿½es");
         }
         Contact contact = new Contact();
         contact.setNom(nom);
@@ -51,13 +51,13 @@ public class ContactService {
     }
 
     /**
-     * Méthode qui permet de modifier un contact
+     * Mï¿½thode qui permet de modifier un contact
      * 
      * @param ancienNom ancien nom du contact
      * @param nouveauNom nouveau nom
-     * @return contact modifié
+     * @return contact modifie
      * @throws ContactInexistantException exception si le contact n'existe plus en base
-     * @throws ContactException exception si le nouveau nom est déjà utilisé
+     * @throws ContactException exception si le nouveau nom est deja utilise
      */
     public Contact modifierNomContact(String ancienNom, String nouveauNom) throws ContactInexistantException,
             ContactException {
@@ -65,11 +65,11 @@ public class ContactService {
         Contact contactBase = contactDao.rechercherContact(ancienNom);
         if (contactBase == null) {
             throw new ContactInexistantException("Un contact avec le nom " + ancienNom
-                    + " n'existe pas en base de données");
+                    + " n'existe pas en base de donnees");
         }
 
         if (contactDao.rechercherContact(nouveauNom) != null) {
-            throw new ContactException("Un contact avec le nom " + nouveauNom + " existe déjà en base de données");
+            throw new ContactException("Un contact avec le nom " + nouveauNom + " existe deja en base de donnees");
         }
 
         return contactDao.updateContact(contactBase, nouveauNom);
@@ -83,7 +83,7 @@ public class ContactService {
 
         List<Contact> listeContact = contactDao.recupererListe();
         if (CollectionUtils.isNotEmpty(listeContact)) {
-            // Transformation de mon objet contact pour récupérer le nom
+            // Transformation de mon objet contact pour rï¿½cupï¿½rer le nom
             return Collections2.transform(listeContact, new Function<Contact, String>() {
 
                 public String apply(Contact contact) {

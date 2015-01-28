@@ -13,7 +13,7 @@ import model.Contact;
  */
 public class ContactDaoImpl implements IContactDao {
 
-    /** Liste des contacts (base de données en mémoire) */
+    /** Liste des contacts (base de donnees en memoire) */
     private List<Contact> contacts = new ArrayList<Contact>();
 
     @Override
