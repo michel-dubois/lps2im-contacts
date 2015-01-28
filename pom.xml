@@ -9,8 +9,7 @@
 		<junit.version>4.11</junit.version>
 		<easymock.version>3.3.1</easymock.version>
 		<apache.commons.version>3.2.1</apache.commons.version>
-
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -82,7 +81,5 @@
 		</plugins>
 
 	</build>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+ 
 </project>
